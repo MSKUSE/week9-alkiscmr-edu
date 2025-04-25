@@ -1,15 +1,35 @@
-public class Rectangle extends Shape{
+public class Rectangle extends Shape implements Drawable{
 
-    private int sideA, sideB;
 
-    public Rectangle(){
-        super();
+
+    int sideA=0 , sideB=0;
+
+    public Rectangle(){}
+    public Rectangle(int sideA, int sideB){
+        this.sideA = sideA;
+        this.sideB = sideB;
     }
-    public Rectangle(String color, int sideA, int sideB){
-        super(color);
-        this.sideA = 1;
-        this.sideB = 1;
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Rectangle)) return false;
+        Rectangle rectangle = (Rectangle) obj;
+        return sideA == rectangle.sideA && sideB == rectangle.sideB;
     }
+
+
+    @Override
+    public double perimeter(){
+        return 2*(this.sideA + this.sideB);
+    }
+
+    @Override
+    public double area
+
+
+
 
     public int getSideA() {
         return sideA;
@@ -46,12 +66,6 @@ public class Rectangle extends Shape{
                 '}';
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Rectangle)) return false;
-        Rectangle rectangle = (Rectangle) obj;
-        return sideA == rectangle.sideA && sideB == rectangle.sideB;
-    }
+
 
 }
